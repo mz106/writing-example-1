@@ -18,3 +18,48 @@ const employeeArr = [
   { name: "sarah", role: "accountant", isBarbeque: true },
   { name: "jane", role: "accountant", isBarbeque: false },
 ];
+
+// Step 1:
+
+// Step 1.1:
+// function to create new list with barbeque attendees
+
+// const getAttendees = (arr) => {
+//   const newArr = arr.map((item) => {
+//     if (item.isBarbeque) {
+//       return item;
+//     }
+//   });
+
+//   return newArr;
+// };
+
+// console.log(getAttendees(employeeArr));
+
+// Step 1.2:
+
+const getAttendees = (arr) => {
+  const newArr = arr.filter((item) => item.isBarbeque);
+
+  return newArr;
+};
+
+// Step 2:
+
+//Step 2.1
+// const sendMessage = (arr) => {
+//   arr.forEach((item) =>
+//     console.log(`Hi ${item.name}, thanks for coming to the barbeque!`)
+//   );
+// };
+
+// Step 2.2
+
+const sendMessage = (fn, arr) => {
+  const sortedArr = fn(arr);
+  sortedArr.forEach((item) =>
+    console.log(`Hi ${item.name}, thanks for coming to the barbeque!`)
+  );
+};
+
+sendMessage(getAttendees, employeeArr);
